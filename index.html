@@ -4,143 +4,362 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dheepan Tutoring</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    :root {
+      --primary: #3a86ff;
+      --secondary: #ff006e;
+      --dark: #2b2d42;
+      --light: #f8f9fa;
+      --accent: #8338ec;
+      --success: #38b000;
+    }
+    
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background-color: #f9f9f9;
-      color: #333;
+      padding: 0;
     }
-
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: var(--light);
+      color: var(--dark);
+    }
+    
     header {
-      background-color: #222;
-      color: #fff;
-      padding: 2rem 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      padding: 3rem 1rem;
       text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
-    main {
-      padding: 2rem 1rem;
-      max-width: 800px;
+    
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+    
+    .nav-container {
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: center;
+      max-width: 1200px;
       margin: 0 auto;
     }
-
+    
+    .nav a {
+      padding: 1.2rem 0;
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+      font-size: 1.05rem;
+    }
+    
+    .nav a:hover, .nav a.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+      background-color: rgba(58, 134, 255, 0.05);
+    }
+    
+    main {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
     section {
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
     }
-
-    h1, h2 {
-      margin-bottom: 1rem;
+    
+    h2 {
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      font-size: 1.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #f0f0f0;
+      position: relative;
     }
-
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 70px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+    
     .about-container {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1.5rem;
+      gap: 2rem;
     }
-
+    
     .profile-pic {
-      width: 150px;
-      height: 150px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center top;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border: 4px solid white;
     }
-
-
+    
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    
+    .subject-card {
+      background-color: rgba(58, 134, 255, 0.05);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-left: 4px solid var(--primary);
+    }
+    
+    .subject-card i {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .subject-card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    
+    .pricing-table th, .pricing-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .pricing-table th {
+      background-color: rgba(58, 134, 255, 0.1);
+    }
+    
+    .pricing-table tr:hover {
+      background-color: rgba(0,0,0,0.01);
+    }
+    
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
     .contact-btn {
       display: inline-block;
-      background-color: #007acc;
+      background-color: var(--primary);
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 0.9rem 2rem;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(58, 134, 255, 0.3);
     }
-
+    
+    .contact-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(58, 134, 255, 0.4);
+      background-color: #2a75f3;
+    }
+    
+    .availability {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .avail-item {
+      background-color: rgba(58, 134, 255, 0.1);
+      padding: 0.7rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .avail-item i {
+      color: var(--primary);
+    }
+    
     footer {
       text-align: center;
-      padding: 1rem;
-      background-color: #eee;
+      padding: 2rem;
+      background-color: var(--dark);
+      color: white;
       font-size: 0.9rem;
-      color: #666;
     }
-
-    .nav {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    .nav a:hover {
-      color: #007bff;
+    
+    @media (max-width: 768px) {
+      .nav {
+        flex-wrap: wrap;
+      }
+      
+      .nav a {
+        padding: 1rem 0;
+        flex-basis: 50%;
+      }
+      
+      .about-container {
+        justify-content: center;
+        text-align: center;
+      }
+      
+      .subjects-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Dheepan Tutoring</h1>
-    <p>Physics & Maths Tutor | GCSE & A-Level</p>
+    <p>Physics & Mathematics Excellence | GCSE & A-Level</p>
   </header>
-
-  <nav class="nav">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="book.html">Book a Demo</a>
-  <a href="testimonials.html">Testimonials</a>
-  </nav>
-
+  
+  <div class="nav-container">
+    <nav class="nav">
+      <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-user"></i> About</a>
+      <a href="pricing.html"><i class="fas fa-tags"></i> Pricing</a>
+      <a href="book.html"><i class="fas fa-calendar-check"></i> Book a Demo</a>
+      <a href="testimonials.html"><i class="fas fa-star"></i> Testimonials</a>
+    </nav>
+  </div>
+  
   <main>
     <section>
       <h2>About Me</h2>
       <div class="about-container">
         <img src="IMG_0025_highRes.JPG" alt="Dheepan profile picture" class="profile-pic" />
-        <p>
-          I'm Dheepan, a Physics graduate from Imperial College London and Durham University.
-          I specialise in tutoring Physics and Mathematics for GCSE and A-Level students.
-          With a strong academic background and passion for teaching, I help students build confidence and master challenging concepts.
-        </p>
+        <div>
+          <p>
+            I'm Dheepan, a Physics graduate from Imperial College London and Durham University.
+            I specialise in tutoring Physics and Mathematics for GCSE and A-Level students.
+          </p>
+          <p>
+            With a strong academic background and passion for teaching, I help students build confidence and master challenging concepts through personalized learning strategies and clear explanations.
+          </p>
+        </div>
       </div>
     </section>
-
+    
     <section>
       <h2>Subjects Offered</h2>
-      <ul>
-        <li>GCSE Physics & Maths</li>
-        <li>A-Level Physics</li>
-        <li>University Admissions (e.g. Personal Statements, Interview Prep)</li>
-      </ul>
+      <div class="subjects-grid">
+        <div class="subject-card">
+          <i class="fas fa-atom"></i>
+          <h3>GCSE Physics</h3>
+          <p>Comprehensive coverage of all exam boards including AQA, Edexcel, and OCR.</p>
+        </div>
+        <div class="subject-card">
+          <i class="fas fa-calculator"></i>
+          <h3>GCSE Mathematics</h3>
+          <p>Building strong foundations in algebra, geometry, statistics and more.</p>
+        </div>
+        <div class="subject-card">
+          <i class="fas fa-microscope"></i>
+          <h3>A-Level Physics</h3>
+          <p>In-depth tutoring for mechanics, electricity, quantum physics and beyond.</p>
+        </div>
+        <div class="subject-card">
+          <i class="fas fa-university"></i>
+          <h3>University Admissions</h3>
+          <p>Personal statement guidance and interview preparation for STEM courses.</p>
+        </div>
+      </div>
     </section>
-
+    
     <section>
       <h2>Rates & Availability</h2>
-      <p>
-        - £25/hr for GCSE<br />
-        - £30/hr for A-Level<br />
-        Available: Weekday evenings and Sunday afternoons
-      </p>
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Rate</th>
+            <th>Session Length</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GCSE</td>
+            <td>£25/hr</td>
+            <td>60 or 90 minutes</td>
+          </tr>
+          <tr>
+            <td>A-Level</td>
+            <td>£30/hr</td>
+            <td>60 or 90 minutes</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 style="margin-top: 2rem;">Available Times:</h3>
+      <div class="availability">
+        <div class="avail-item">
+          <i class="fas fa-clock"></i> Weekday Evenings
+        </div>
+        <div class="avail-item">
+          <i class="fas fa-clock"></i> Sunday Afternoons
+        </div>
+      </div>
     </section>
-
+    
     <section>
       <h2>Contact</h2>
-      <p>Ready to book a session or have questions?</p>
-      <a class="contact-btn" href="mailto:dheepan@email.com">Email Me</a>
+      <div class="contact-container">
+        <p>Ready to boost your academic performance? Let's start your journey to success today.</p>
+        <a class="contact-btn" href="mailto:dheepan@email.com">
+          <i class="fas fa-envelope"></i> Email Me
+        </a>
+      </div>
     </section>
   </main>
-
+  
   <footer>
     &copy; 2025 Dheepan Tutoring. All rights reserved.
   </footer>
-
 </body>
 </html>
