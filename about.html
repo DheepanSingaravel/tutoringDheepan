@@ -3,111 +3,351 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dheepan Tutoring</title>
+  <title>About Me - Dheepan Tutoring</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    :root {
+      --primary: #4361ee;
+      --secondary: #ff006e;
+      --dark: #2b2d42;
+      --light: #f0f8ff;
+      --accent: #7209b7;
+      --success: #38b000;
+    }
+    
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background-color: #f9f9f9;
-      color: #333;
+      padding: 0;
     }
-
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: var(--light);
+      color: var(--dark);
+    }
+    
     header {
-      background-color: #222;
-      color: #fff;
-      padding: 2rem 1rem;
+      background: linear-gradient(135deg, #4361ee, #7209b7);
+      color: white;
+      padding: 3rem 1rem;
       text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-
-    main {
-      padding: 2rem 1rem;
-      max-width: 800px;
+    
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+    
+    .nav-container {
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: center;
+      max-width: 1200px;
       margin: 0 auto;
     }
-
+    
+    .nav a {
+      padding: 1.2rem 0;
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+      font-size: 1.05rem;
+    }
+    
+    .nav a:hover, .nav a.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+      background-color: rgba(67, 97, 238, 0.08);
+    }
+    
+    main {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
     section {
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
     }
-
-    h1, h2 {
-      margin-bottom: 1rem;
+    
+    section:hover {
+      transform: translateY(-5px);
     }
-
+    
+    h2 {
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      font-size: 1.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #f0f0f0;
+      position: relative;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 70px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+    
     .about-container {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1.5rem;
+      gap: 2rem;
+      margin-bottom: 3rem;
     }
-
+    
     .profile-pic {
-      width: 150px;
-      height: 150px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center top;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      border: 4px solid white;
     }
-
-
-    .contact-btn {
-      display: inline-block;
-      background-color: #007acc;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      border-radius: 5px;
+    
+    .education {
+      background-color: rgba(67, 97, 238, 0.06);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-left: 4px solid var(--primary);
     }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #eee;
+    
+    .experience-item {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .experience-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    
+    .experience-item h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .experience-item .date {
       font-size: 0.9rem;
       color: #666;
+      margin-bottom: 0.5rem;
     }
-
-    .nav {
-      text-align: center;
-      margin-bottom: 30px;
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
     }
-
-    .nav a {
-      margin: 0 15px;
+    
+    .skill-item {
+      background-color: rgba(67, 97, 238, 0.06);
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .skill-item:hover {
+      background-color: rgba(67, 97, 238, 0.1);
+      transform: translateX(3px);
+    }
+    
+    .skill-item i {
+      color: var(--primary);
+    }
+    
+    .contact-btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.9rem 2rem;
       text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.2s ease;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(67, 97, 238, 0.3);
     }
-
-    .nav a:hover {
-      color: #007bff;
+    
+    .contact-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+      background-color: #3552d2;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #2b2d42, #3a3d5d);
+      color: white;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .nav {
+        flex-wrap: wrap;
+      }
+      
+      .nav a {
+        padding: 1rem 0;
+        flex-basis: 50%;
+      }
+      
+      .about-container {
+        justify-content: center;
+        text-align: center;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Dheepan Tutoring</h1>
-    <p>Physics & Maths Tutor | GCSE & A-Level</p>
+    <p>Physics & Mathematics Excellence | GCSE & A-Level</p>
   </header>
-
-  <nav class="nav">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="book.html">Book a Demo</a>
-  <a href="testimonials.html">Testimonials</a>
-  </nav>
+  
+  <div class="nav-container">
+    <nav class="nav">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html" class="active"><i class="fas fa-user"></i> About</a>
+      <a href="pricing.html"><i class="fas fa-tags"></i> Pricing</a>
+      <a href="book.html"><i class="fas fa-calendar-check"></i> Book a Demo</a>
+      <a href="testimonials.html"><i class="fas fa-star"></i> Testimonials</a>
+      <a href="https://forms.gle/4mxmGydkUx7nGpig7" target="_blank"><i class="fas fa-calendar-check"></i> Book a Demo</a>
+    </nav>
+  </div>
   
   <main>
-    <section class="about-container">
-      <img src="IMG_0025_highRes.JPG" alt="Dheepan" class="profile-pic">
-      <div>
-        <h2>Hi, I’m Dheepan</h2>
-        <p>I’m a Physics graduate from Imperial College London and Durham University...</p>
-        <p>I've helped students with GCSEs, A-levels, and university entrance prep...</p>
-        <a href="book.html" class="contact-btn">Book a Free Demo</a>
+    <section>
+      <h2>About Me</h2>
+      <div class="about-container">
+        <img src="IMG_0025_highRes.JPG" alt="Dheepan profile picture" class="profile-pic" />
+        <div>
+          <p>
+            Hi, I'm Dheepan, a Physics graduate from Imperial College London and Durham University with a passion for teaching and helping students reach their full potential in STEM subjects.
+          </p>
+          <p>
+            I've dedicated myself to providing high-quality, personalized tutoring that builds confidence and understanding in even the most challenging Physics and Mathematics concepts.
+          </p>
+          <p>
+            My teaching approach focuses on developing a strong conceptual foundation, problem-solving skills, and exam techniques that help students excel in their studies and assessments.
+          </p>
+          <a href="https://forms.gle/4mxmGydkUx7nGpig7" target="_blank" class="contact-btn">
+            <i class="fas fa-calendar-check"></i> Book a Free Demo Session
+          </a>
+        </div>
+      </div>
+      
+      <div class="education">
+        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+        <p><strong>MSc Physics</strong> - Imperial College London</p>
+        <p><strong>BSc Physics</strong> - Durham University</p>
+      </div>
+      
+      <h3>Teaching Experience</h3>
+      <div class="experience-item">
+        <h3>Private Physics & Mathematics Tutor</h3>
+        <div class="date">2020 - Present</div>
+        <p>Working with GCSE and A-Level students to improve their understanding and academic performance in Physics and Mathematics. Helped numerous students achieve their target grades and secure places at top universities.</p>
+      </div>
+      
+      <div class="experience-item">
+        <h3>Teaching Assistant - Durham University</h3>
+        <div class="date">2018 - 2020</div>
+        <p>Assisted in undergraduate physics laboratories and tutorials, providing guidance and support to first-year physics students.</p>
+      </div>
+      
+      <h3 style="margin-top: 2rem;">Subject Expertise</h3>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <i class="fas fa-atom"></i> Quantum Physics
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-bolt"></i> Electromagnetism
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-rocket"></i> Mechanics
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-wave-square"></i> Waves & Oscillations
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-calculator"></i> Calculus
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-project-diagram"></i> Statistics
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-square-root-alt"></i> Algebra
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-drafting-compass"></i> Geometry
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <h2>Teaching Philosophy</h2>
+      <p>I believe that every student has unique learning needs and styles. My tutoring approach is tailored to each individual, focusing on:</p>
+      <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+        <li>Building strong foundational understanding rather than mere memorization</li>
+        <li>Developing problem-solving skills through practice and guidance</li>
+        <li>Boosting confidence through encouragement and positive reinforcement</li>
+        <li>Creating a supportive learning environment where questions are welcomed</li>
+        <li>Connecting abstract concepts to real-world applications</li>
+      </ul>
+      
+      <div style="text-align: center; margin-top: 2rem;">
+        <p>Ready to take your Physics and Mathematics skills to the next level?</p>
+        <a href="mailto:dheepansingaravel7@gmail.com" class="contact-btn" style="margin-right: 1rem;">
+          <i class="fas fa-envelope"></i> Email Me
+        </a>
+        <a href="https://forms.gle/4mxmGydkUx7nGpig7" target="_blank" class="contact-btn" style="background-color: var(--success);">
+          <i class="fas fa-calendar-check"></i> Book a Free Session
+        </a>
       </div>
     </section>
   </main>
@@ -115,6 +355,5 @@
   <footer>
     &copy; 2025 Dheepan Tutoring. All rights reserved.
   </footer>
-
 </body>
 </html>
