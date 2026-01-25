@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing - Dheepan Tutoring</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4361ee;
+      --secondary: #ff006e;
+      --dark: #2b2d42;
+      --light: #f0f8ff;
+      --accent: #7209b7;
+      --success: #38b000;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: var(--light);
+      color: var(--dark);
+    }
+
+    header {
+      background: linear-gradient(135deg, #4361ee, #7209b7);
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .nav-container {
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav a {
+      padding: 1.2rem 0;
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+      font-size: 1.05rem;
+    }
+
+    .nav a:hover, .nav a.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+      background-color: rgba(67, 97, 238, 0.08);
+    }
+
+    main {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    section:hover { transform: translateY(-5px); }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      font-size: 1.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #f0f0f0;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 70px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .pricing-table th, .pricing-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+
+    .pricing-table th {
+      background-color: rgba(67, 97, 238, 0.1);
+      color: var(--dark);
+    }
+
+    .pricing-table tr:hover { background-color: rgba(0,0,0,0.02); }
+
+    .note {
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      background-color: rgba(67, 97, 238, 0.06);
+      border-left: 4px solid var(--primary);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background-color: rgba(67, 97, 238, 0.06);
+      border-radius: 10px;
+      padding: 1.5rem;
+      border-left: 4px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      background-color: rgba(67, 97, 238, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .card h3 { margin-bottom: 0.5rem; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background-color: rgba(67, 97, 238, 0.12);
+      color: var(--dark);
+      font-size: 0.9rem;
+      margin: 0.35rem 0.35rem 0 0;
+      white-space: nowrap;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(67, 97, 238, 0.3);
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+      background-color: #3552d2;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #2b2d42, #3a3d5d);
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav { flex-wrap: wrap; }
+      .nav a { padding: 1rem 0; flex-basis: 50%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dheepan Tutoring</h1>
+    <p>Physics & Mathematics Excellence | GCSE & A-Level</p>
+  </header>
+
+  <div class="nav-container">
+    <nav class="nav">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-user"></i> About</a>
+      <a href="pricing.html" class="active"><i class="fas fa-tags"></i> Pricing</a>
+      <a href="testimonials.html"><i class="fas fa-star"></i> Testimonials</a>
+      <a href="https://forms.gle/4mxmGydkUx7nGpig7" target="_blank"><i class="fas fa-calendar-check"></i> Book a Demo</a>
+    </nav>
+  </div>
+
+  <main>
+    <section>
+      <h2>Lesson Rates</h2>
+
+      <table class="pricing-table" aria-label="Tutoring rates">
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Rate</th>
+            <th>Typical focus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GCSE Physics / Maths</td>
+            <td>£25 / hour</td>
+            <td>Core skills, topic mastery, exam technique, confidence building</td>
+          </tr>
+          <tr>
+            <td>A-Level Physics / Maths</td>
+            <td>£30 / hour</td>
+            <td>Deep understanding, harder problems, past paper strategy, grade improvement</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Session length:</strong> 60 or 90 minutes.<br/>
+        <strong>First step:</strong> free 20-minute demo session (fit, goals, plan).
+      </div>
+    </section>
+
+    <section>
+      <h2>Bundles</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3><i class="fas fa-layer-group"></i> 4-session bundle</h3>
+          <p>10% discount when booking 4 sessions upfront.</p>
+          <div class="pill"><i class="fas fa-check"></i> Momentum + consistency</div>
+          <div class="pill"><i class="fas fa-check"></i> Weekly plan</div>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-boxes-stacked"></i> 8-session bundle</h3>
+          <p>15% discount when booking 8 sessions upfront.</p>
+          <div class="pill"><i class="fas fa-check"></i> Strong grade lift</div>
+          <div class="pill"><i class="fas fa-check"></i> Full topic coverage</div>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-bullseye"></i> Exam sprint</h3>
+          <p>Targeted revision plan built around weak topics and past papers.</p>
+          <div class="pill"><i class="fas fa-check"></i> Mark scheme training</div>
+          <div class="pill"><i class="fas fa-check"></i> Timed practice</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What’s Included</h2>
+      <div class="note" style="margin-top: 0;">
+        <div class="pill"><i class="fas fa-check"></i> Personalised study plan</div>
+        <div class="pill"><i class="fas fa-check"></i> Topic worksheets + past papers</div>
+        <div class="pill"><i class="fas fa-check"></i> Clear step-by-step solutions</div>
+        <div class="pill"><i class="fas fa-check"></i> Homework between sessions (optional)</div>
+        <div class="pill"><i class="fas fa-check"></i> Progress tracking</div>
+      </div>
+
+      <div style="text-align:center; margin-top: 1.5rem;">
+        <a class="contact-btn" href="https://forms.gle/4mxmGydkUx7nGpig7" target="_blank" style="background-color: var(--success);">
+          <i class="fas fa-calendar-check"></i> Book a Free Demo
+        </a>
+        <a class="contact-btn" href="mailto:dheepansingaravel7@gmail.com" style="margin-left: 1rem;">
+          <i class="fas fa-envelope"></i> Email Me
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Policies</h2>
+      <div class="note" style="margin-top: 0;">
+        <strong>Online delivery:</strong> typically via Google Meet / Zoom.<br/>
+        <strong>Cancellations:</strong> set a clear rule here (example: free reschedule with 24h notice).<br/>
+        <strong>Payment:</strong> set your method here (bank transfer, PayPal, etc.).
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Dheepan Tutoring. All rights reserved.
+  </footer>
+</body>
+</html>
