@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Testimonials - Dheepan Tutoring</title>
+  <meta name="description" content="Private Physics and Mathematics tutoring for GCSE and A-Level students by Imperial College & Durham Physics graduate Dheepan Singaravel. Free demo session.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dheepansingaravel.github.io/tutoringDheepan/about.html">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4361ee;
+      --secondary: #ff006e;
+      --dark: #2b2d42;
+      --light: #f0f8ff;
+      --accent: #7209b7;
+      --success: #38b000;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: var(--light);
+      color: var(--dark);
+    }
+    
+    header {
+      background: linear-gradient(135deg, #4361ee, #7209b7);
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+    
+    .nav-container {
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .nav a {
+      padding: 1.2rem 0;
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+      font-size: 1.05rem;
+    }
+    
+    .nav a:hover, .nav a.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+      background-color: rgba(67, 97, 238, 0.08);
+    }
+    
+    main {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    
+    h2 {
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      font-size: 1.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #f0f0f0;
+      position: relative;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 70px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+    
+    .testimonial {
+      background-color: white;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-left: 4px solid var(--primary);
+      transition: transform 0.3s ease;
+    }
+    
+    .testimonial:hover {
+      transform: translateY(-5px);
+    }
+    
+    .testimonial:last-child {
+      margin-bottom: 0;
+    }
+    
+    .quote {
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding: 0 1rem;
+    }
+    
+    .quote::before {
+      content: '\201C';
+      font-size: 3rem;
+      color: var(--primary);
+      opacity: 0.3;
+      position: absolute;
+      left: -0.5rem;
+      top: -1rem;
+    }
+    
+    .quote::after {
+      content: '\201D';
+      font-size: 3rem;
+      color: var(--primary);
+      opacity: 0.3;
+      position: absolute;
+      right: -0.5rem;
+      bottom: -2rem;
+    }
+    
+    .student-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .student-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #e9ecef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .student-details h4 {
+      margin-bottom: 0.2rem;
+      color: var(--dark);
+    }
+    
+    .student-details p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .rating {
+      color: #ffc107;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .cta-container {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    
+    .contact-btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(67, 97, 238, 0.3);
+    }
+    
+    .contact-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+      background-color: #3552d2;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #2b2d42, #3a3d5d);
+      color: white;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .nav {
+        flex-wrap: wrap;
+      }
+      
+      .nav a {
+        padding: 1rem 0;
+        flex-basis: 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dheepan Tutoring</h1>
+    <p>Physics & Mathematics Excellence | GCSE & A-Level</p>
+  </header>
+  
+  <div class="nav-container">
+    <nav class="nav">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-user"></i> About</a>
+      <a href="pricing.html"><i class="fas fa-tags"></i> Pricing</a>
+      <a href="testimonials.html" class="active"><i class="fas fa-star"></i> Testimonials</a>
+      <a href="https://forms.gle/4mxmGydkUx7nGpig7" target="_blank"><i class="fas fa-calendar-check"></i> Book a Demo</a>
+    </nav>
+  </div>
+  
+  <main>
+    <section>
+      <h2>What My Students Say</h2>
+      
+      <div class="testimonial">
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="quote">
+          Before working with Dheepan, I was struggling with A-Level Physics and worried about my university applications. His clear explanations and patient teaching style helped me understand complex concepts that my school teachers couldn't explain well. Thanks to his tutoring, I improved from a predicted C to an A and secured my place at Manchester University!
+        </div>
+        <div class="student-info">
+          <div class="student-avatar">
+            SM
+          </div>
+          <div class="student-details">
+            <h4>Sarah Mitchell</h4>
+            <p>A-Level Physics & Mathematics Student</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="quote">
+          Dheepan is an exceptional tutor who really understands how to make difficult physics concepts accessible. My son was struggling with GCSE Physics and lacked confidence in his abilities. Within just a few sessions with Dheepan, we noticed a remarkable improvement not only in his grades but also in his enthusiasm for the subject. Dheepan has a talent for explaining complex ideas in a way that just clicks. Highly recommended!
+        </div>
+        <div class="student-info">
+          <div class="student-avatar">
+            JT
+          </div>
+          <div class="student-details">
+            <h4>James Taylor</h4>
+            <p>Parent of GCSE Physics Student</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cta-container">
+        <p>Ready to experience the same success with your studies?</p>
+        <a href="https://forms.gle/4mxmGydkUx7nGpig7" target="_blank" class="contact-btn">
+          <i class="fas fa-calendar-check"></i> Book Your Free Demo Session
+        </a>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    &copy; 2025 Dheepan Tutoring. All rights reserved.
+  </footer>
+</body>
+</html>
