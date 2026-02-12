@@ -63,12 +63,28 @@ body {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1.45rem;
   font-weight: 700;
   color: var(--ink);
   text-decoration: none;
   letter-spacing: 0.3px;
+}
+
+.brand-logo {
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  border: 1px solid rgba(216, 200, 175, 0.8);
+  box-shadow: 0 4px 10px rgba(79, 58, 35, 0.1);
+  background: #f7f1e7;
+}
+
+.brand-text {
+  line-height: 1;
 }
 
 .site-nav {
@@ -474,6 +490,11 @@ h2 {
 
   .nav-shell {
     border-radius: 1rem;
+  }
+
+  .brand-logo {
+    width: 2.15rem;
+    height: 2.15rem;
   }
 }
 
