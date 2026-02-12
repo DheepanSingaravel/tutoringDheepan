@@ -311,6 +311,73 @@ h2 {
   color: var(--ink);
 }
 
+.video-note {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.video-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 0.9rem;
+}
+
+.video-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.7rem;
+  overflow: hidden;
+  background: #e9dcc8;
+  border: 1px solid var(--line);
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  text-align: center;
+  padding: 0.8rem;
+}
+
+.video-card h3 {
+  margin: 0.65rem 0 0.25rem;
+  font-size: 1.2rem;
+}
+
+.video-card p {
+  margin: 0 0 0.45rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.video-card a {
+  color: var(--accent-deep);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.video-card a:hover,
+.video-card a:focus-visible {
+  text-decoration: underline;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -378,6 +445,7 @@ h2 {
 @media (max-width: 900px) {
   .card-grid,
   .testimonial-grid,
+  .video-grid,
   .contact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -395,6 +463,7 @@ h2 {
   .split,
   .card-grid,
   .testimonial-grid,
+  .video-grid,
   .contact-grid {
     grid-template-columns: 1fr;
   }

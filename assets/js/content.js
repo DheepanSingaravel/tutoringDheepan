@@ -83,5 +83,22 @@
       name: "Student C",
       role: "GCSE Maths and Physics"
     }
+  ],
+  videos: [
+    {
+      title: "Mechanics Example: Forces and Free-Body Diagrams",
+      url: "https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID",
+      description: "Replace this with your first YouTube lesson link."
+    },
+    {
+      title: "GCSE Algebra Walkthrough",
+      url: "https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_2",
+      description: "Add a short topic summary here."
+    },
+    {
+      title: "A-Level Physics Past Paper Strategy",
+      url: "https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_3",
+      description: "Share what students will learn in this sample."
+    }
   ]
 };

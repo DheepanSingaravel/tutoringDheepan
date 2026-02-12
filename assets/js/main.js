@@ -81,4 +81,46 @@
       )
       .join("");
   }
+
+  const getYouTubeEmbedUrl = (url) => {
+    if (!url) return null;
+    let id = null;
+
+    const watchMatch = url.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
+    const shortMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+    const embedMatch = url.match(/youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/);
+    const shortsMatch = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/);
+
+    if (watchMatch) id = watchMatch[1];
+    if (!id && shortMatch) id = shortMatch[1];
+    if (!id && embedMatch) id = embedMatch[1];
+    if (!id && shortsMatch) id = shortsMatch[1];
+
+    return id ? `https://www.youtube.com/embed/${id}` : null;
+  };
+
+  const videosEl = document.getElementById("videos-grid");
+  if (videosEl && Array.isArray(data.videos)) {
+    videosEl.innerHTML = data.videos
+      .map((video) => {
+        const embedUrl = getYouTubeEmbedUrl(video.url);
+        const frame = embedUrl
+          ? `<iframe src="${embedUrl}" title="${video.title}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
+          : `<div class="video-placeholder">Add a valid YouTube link in content.js</div>`;
+
+        const link = video.url
+          ? `<a href="${video.url}" target="_blank" rel="noreferrer">Open on YouTube</a>`
+          : "";
+
+        return `
+        <article class="video-card">
+          <div class="video-frame">${frame}</div>
+          <h3>${video.title}</h3>
+          <p>${video.description || ""}</p>
+          ${link}
+        </article>
+      `;
+      })
+      .join("");
+  }
 })();
