@@ -21,7 +21,6 @@
 
   setHref("book-btn", data.bookingUrl);
   setHref("contact-book-link", data.bookingUrl);
-  setHref("contact-form-link", data.contactFormUrl || data.bookingUrl);
   setHref("linkedin-btn", data.linkedinUrl);
   setHref("contact-linkedin-link", data.linkedinUrl);
   setHref("email-btn", `mailto:${data.email}`);
@@ -50,13 +49,13 @@
       .join("");
   }
 
-  const timelineEl = document.getElementById("timeline");
-  if (timelineEl && Array.isArray(data.timeline)) {
-    timelineEl.innerHTML = data.timeline
+  const renderTimeline = (containerId, entries) => {
+    const container = document.getElementById(containerId);
+    if (!container || !Array.isArray(entries)) return;
+    container.innerHTML = entries
       .map(
         (entry) => `
         <article class="timeline-item">
-          <span class="tag">${entry.type}</span>
           <h3>${entry.title}</h3>
           <p class="meta-line">${entry.organisation} | ${entry.period}</p>
           <p>${entry.summary}</p>
@@ -64,7 +63,10 @@
       `
       )
       .join("");
-  }
+  };
+
+  renderTimeline("education-list", data.education);
+  renderTimeline("experience-list", data.experience);
 
   const testimonialEl = document.getElementById("testimonials-grid");
   if (testimonialEl && Array.isArray(data.testimonials)) {

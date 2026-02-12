@@ -2,7 +2,6 @@
   tutorName: "Dheepan Singaravel",
   heroLine: "Private Physics and Mathematics tutoring for GCSE and A-Level students.",
   bookingUrl: "https://forms.gle/4mxmGydkUx7nGpig7",
-  contactFormUrl: "https://forms.gle/4mxmGydkUx7nGpig7",
   linkedinUrl: "https://www.linkedin.com/in/dheepansingaravel/",
   email: "dheepansingaravel7@gmail.com",
   phone: "07436593854",
@@ -14,12 +13,12 @@
   pricing: [
     {
       level: "GCSE Physics / Maths",
-      rate: "GBP 25 per hour",
+      rate: "GBP 30 per hour",
       details: "60 or 90-minute sessions. Core skills, topic mastery, and exam strategy."
     },
     {
       level: "A-Level Physics / Maths",
-      rate: "GBP 30 per hour",
+      rate: "GBP 40 per hour",
       details: "60 or 90-minute sessions. Deeper problem-solving and high-grade preparation."
     },
     {
@@ -28,44 +27,40 @@
       details: "We review your goals, identify focus areas, and outline a study plan."
     }
   ],
-  timeline: [
+  education: [
     {
-      type: "Education",
       title: "MSc Physics (High Merit)",
       organisation: "Imperial College London",
       period: "2023 - 2024",
       summary: "Advanced modules included quantum field theory, general relativity, advanced particle physics, and computational physics."
     },
     {
-      type: "Education",
       title: "BSc Physics (First Class Honours)",
       organisation: "Durham University",
       period: "2021 - 2023",
       summary: "Graduated with strong performance in core mathematics and physics modules, including an award-winning dissertation."
-    },
+    }
+  ],
+  experience: [
     {
-      type: "Experience",
-      title: "Physics and Maths Tutor (COMPOS)",
-      organisation: "University of Oxford, Department of Physics",
-      period: "Oct 2024 - Present",
-      summary: "Tutoring Year 11 and post-16 students in advanced school-level physics and maths topics."
-    },
-    {
-      type: "Experience",
-      title: "Mathematical Consultant Intern",
-      organisation: "Industry project work",
-      period: "Jan 2025 - Jul 2025",
-      summary: "Built mathematical and machine-learning models for applied industrial use cases, including nuclear safety-related forecasting tasks."
-    },
-    {
-      type: "Experience",
       title: "Mathematics Teaching Fellow",
       organisation: "Cambridge Center for International Research (CCIR)",
       period: "Feb 2026 - Present",
       summary: "Designing and teaching foundational university mathematics content for higher-secondary students."
     },
     {
-      type: "Experience",
+      title: "Physics and Maths Tutor (COMPOS)",
+      organisation: "University of Oxford, Department of Physics",
+      period: "Oct 2024 - Present",
+      summary: "Tutoring Year 11 and post-16 students in advanced school-level physics and maths topics."
+    },
+    {
+      title: "Mathematical Consultant Intern",
+      organisation: "Smith Institute",
+      period: "Jan 2025 - Jul 2025",
+      summary: "Built mathematical and machine-learning models for applied industrial use cases, including nuclear safety-related forecasting tasks."
+    },
+    {
       title: "Private Physics and Mathematics Tutor",
       organisation: "Independent",
       period: "Ongoing",
